@@ -1,0 +1,54 @@
+package project;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class CarRentalSystem {
+    private List<Car> availableCars;
+
+    public CarRentalSystem() {
+        availableCars = new ArrayList<>();
+    }
+
+    public void addCar(Car car) {
+        availableCars.add(car);
+    }
+
+    public void displayAvailableCars() {
+        System.out.println();
+        System.out.println("Available Cars:");
+        for (Car car : availableCars) {
+        	if(car.isAvailable())
+            System.out.println(car);
+        }
+        System.out.println();
+    }
+
+    public void rentCar(int carId) {
+        for (Car car : availableCars) {
+            if (car.getCarId() == carId) {
+                if (car.isAvailable()) {
+                    car.setAvailable(false);
+                    System.out.println("Car rented successfully.");
+                } else {
+                    System.out.println("Car is not available for rent.");
+                }
+                return;
+            }
+        }
+        System.out.println("Car not found.");
+    }
+
+    public void returnCar(int carId) {
+        for (Car car : availableCars) {
+            if (car.getCarId() == carId) {
+                car.setAvailable(true);
+                System.out.println("Car returned successfully.");
+                return;
+            }
+        }
+        System.out.println("Car not found.");
+    }
+
+}
