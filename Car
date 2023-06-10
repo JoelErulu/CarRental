@@ -1,0 +1,33 @@
+
+import java.io.Serializable;
+
+public class Car  {
+	private int carId;
+	private String carBrand;
+	private String carModel;
+	private int carYear;
+	private boolean isAvailable;
+
+	public Car(int carId, String carBrand, String carModel, int carYear) {
+		this.carId = carId;
+		this.carBrand = carBrand;
+		this.carModel = carModel;
+		this.carYear =  carYear;
+		this.isAvailable =  true;
+
+	}
+
+	public int getCarId() {return carId;}
+	public String getcarBrand() {return carBrand;}
+	public String getcarModel() {return carModel;}
+	public int getcarYear() {return carYear;}
+	public boolean isAvailable() {return isAvailable;}
+
+	public void setAvailable(boolean b) {this.isAvailable = b;}
+
+	@Override
+	public String toString() {
+		return "ID:" + carId + " --- " + carYear + " " + carBrand+ " " + carModel;
+	}
+
+}
